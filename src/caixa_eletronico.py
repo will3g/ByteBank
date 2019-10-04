@@ -1,0 +1,3 @@
+
+class CaixaEletronico():
+  pass
