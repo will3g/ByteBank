@@ -1,17 +1,23 @@
-from errors import ValorMenorQueZeroError, TranferenciaNaoEfetuadaError, SaldoELimiteInsuficienteError
-from dateCreateAccount import DateCreateAccount
-from historico import Historico
+from my_app.models.errors.errors import ValorMenorQueZeroError, \
+    TranferenciaNaoEfetuadaError, SaldoELimiteInsuficienteError
+from my_app.models.contas.dateCreateAccount import DateCreateAccount
+from my_app.models.contas.historico import Historico
 
 class Conta:
 
-    __slots__ = ['__numero', '__titular', '_saldo', '__limite', '__date_abertura', '__historico', '_identificador_conta']
+    __slots__ = ['__numero',
+                 '__titular',
+                 '_saldo',
+                 '__limite',
+                 '__date_abertura',
+                 '__historico',
+                 '_identificador_conta']
 
     __quantidade_contas = 0
     
-    def __init__(self, numero, titular, saldo, limite):
+    def __init__(self, numero, limite):
         self.__numero = numero
-        self.__titular = titular
-        self._saldo = saldo
+        self._saldo = 0.0
         self.__limite = limite
         self.__date_abertura = DateCreateAccount()
         print('Conta criada em {}'.format(self.__date_abertura.dateCreated()))
@@ -81,7 +87,7 @@ class Conta:
             return True
         raise TranferenciaNaoEfetuadaError(
             'Tranferencia nao efetuada, falhou no método sacar. Retorno {}'
-            .format(return_sacar))
+                .format(return_sacar))
         
     def atualiza(self, taxa):
         self._saldo += self._saldo * taxa
