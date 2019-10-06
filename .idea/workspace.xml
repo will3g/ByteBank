@@ -41,52 +41,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../Banco-8713-Flask/my_app/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-              <folding>
-                <element signature="e#0#72#0" expanded="true" />
-                <element signature="e#474#1094#0" />
-                <element signature="e#1245#1867#0" />
-                <element signature="e#1858#2280#0" />
-                <element signature="e#276#676#0" />
-                <element signature="e#1641#2153#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Banco-8713-Flask/my_app/templates/form-conta.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Banco-8713-Flask/my_app/templates/form-cliente.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Banco-8713-Flask/my_app/models/cliente/cliente.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -123,10 +78,11 @@
         <option value="$PROJECT_DIR$/../Banco-8713-Flask/my_app/models/contas/base/conta.py" />
         <option value="$PROJECT_DIR$/../Banco-8713-Flask/my_app/templates/form-conta.html" />
         <option value="$PROJECT_DIR$/../Banco-8713-Flask/my_app/views.py" />
+        <option value="$PROJECT_DIR$/../Banco-8713-Flask/.gitignore" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="864" />
     <option name="height" value="775" />
@@ -149,48 +105,6 @@
               <item name="Banco-8731" type="b2602c69:ProjectViewProjectNode" />
               <item name="Banco-8713-Flask" type="462c0819:PsiDirectoryNode" />
               <item name="my_app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Banco-8731" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banco-8713-Flask" type="462c0819:PsiDirectoryNode" />
-              <item name="my_app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Banco-8731" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banco-8713-Flask" type="462c0819:PsiDirectoryNode" />
-              <item name="my_app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="cliente" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Banco-8731" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banco-8713-Flask" type="462c0819:PsiDirectoryNode" />
-              <item name="my_app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="contas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Banco-8731" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banco-8713-Flask" type="462c0819:PsiDirectoryNode" />
-              <item name="my_app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="contas" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Banco-8731" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banco-8713-Flask" type="462c0819:PsiDirectoryNode" />
-              <item name="my_app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="contas" type="462c0819:PsiDirectoryNode" />
-              <item name="tipos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Banco-8731" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banco-8713-Flask" type="462c0819:PsiDirectoryNode" />
-              <item name="my_app" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -379,10 +293,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="864" height="775" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25427872" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25416037" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -393,7 +306,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32866043" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32718894" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -500,13 +413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Banco-8713-Flask/my_app/templates/form-conta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Banco-8713-Flask/my_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -521,6 +427,23 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Banco-8713-Flask/my_app/templates/form-conta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Banco-8713-Flask/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Banco-8713-Flask/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
