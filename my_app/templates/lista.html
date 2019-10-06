@@ -5,14 +5,14 @@
        <meta charset="utf-8">
 
        <!-- Bootstrap CSS -->
-       <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" > 
+       <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" >
    </head>
    <body>
        <div class="container">
 
            <h1>contas</h1>
            <hr />
-           <a href="/contas/form">criar nova conta</a>
+           <a href="/form">criar nova conta</a>
            <br />
            <br />
 
@@ -33,13 +33,11 @@
                                <td>{{conta.titular}}</td>
                                <td>{{conta.saldo}}</td>
                                <td>{{conta.limite}}</td>
-                               <td><a href="/contas/{{conta._id}}/edit">Editar</a></td>
-                               <td><a href="/contas/form">Remover</a></td>
-                           </tr>    
+                           </tr>
                        {% endfor %}
                    </tbody>
                </table>
            </div>
-       </div>  
+       </div>
    </body>
 </html>

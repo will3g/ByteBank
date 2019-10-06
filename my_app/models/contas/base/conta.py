@@ -11,12 +11,14 @@ class Conta:
                  '__limite',
                  '__date_abertura',
                  '__historico',
-                 '_identificador_conta']
+                 '_identificador_conta',
+                 '__senha']
 
     __quantidade_contas = 0
     
-    def __init__(self, numero, limite):
+    def __init__(self, numero, senha, limite):
         self.__numero = numero
+        self.__senha = senha
         self._saldo = 0.0
         self.__limite = limite
         self.__date_abertura = DateCreateAccount()

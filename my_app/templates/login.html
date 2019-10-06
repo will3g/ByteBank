@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ByteBank Login</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" >
+  </head>
+
+  <body class="text-center">
+    <form action="/contas/login" method="post" class="form-signin">
+
+      <h1 class="h3 mb-3 font-weight-normal">Acesse sua conta agora!</h1>
+
+      <label for="inputCpf" class="sr-only">CPF</label>
+      <input type="text" id="inputCpf" class="form-control" placeholder="Digite seu cpf" name="cpf" required autofocus>
+
+      <label for="inputSenha" class="sr-only">Senha</label>
+      <input type="password" id="inputSenha" class="form-control" placeholder="Digite sua senha" name="senha" required>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Lembre-se de mim
+        </label>
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+
+      {% if failed_login %}
+        <span><strong><p class="text-danger">CPF ou senha inválidos, verifique e tente novamente mais tarde! :D<p/></strong></span>
+      {% else %}
+        <span></span>
+      {% endif %}
+
+      <p class="mt-5 mb-3 text-muted">&copy; 2019 ByteBank Corporation</p>
+
+    </form>
+  </body>
+</html>
