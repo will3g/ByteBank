@@ -92,9 +92,6 @@ def create_account(id):
 def login():
     return render_template('login.html')
 
-# http://127.0.0.1:5000/contas/login?cpf=46008454159&senha=251226
-
-
 @conta_bp.route('/login', methods=['POST'])
 def validation():
 
@@ -124,3 +121,8 @@ def validation():
         return '<h1>Entrou</h1>'
     else:
         return render_template('login.html', failed_login=True)
+
+''' ------- HOME PRINCIPAL SEM LOGIN -------- '''
+@conta_bp.route('/home')
+def home():
+    return render_template('main.html')
