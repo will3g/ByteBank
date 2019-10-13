@@ -1,30 +1,66 @@
 from flask import render_template, Blueprint, request, redirect, url_for
-from my_app.models.contas.tipos.conta_poupanca import ContaPoupanca
+'''from my_app.models.contas.tipos.conta_poupanca import ContaPoupanca'''
+from my_app.models.contas.tipos.conta_corrente import ContaCorrente
 from my_app.models.cliente.cliente import Cliente
 from my_app.db import get_connection
 
-conta_bp = Blueprint('contas', __name__, url_prefix='/contas')
+conta_bp = Blueprint('bb', __name__, url_prefix='/bb')
 
 '''----------- CADASTRA CLIENTE -------------'''
 '''EXIBE FOR CLIENTE'''
-@conta_bp.route('/form/seja-cliente')
+'''@conta_bp.route('/seja-cliente')
 def formulario_cliente():
-    return render_template('form-cliente.html')
+    return render_template('form-cliente.html')'''
+
+@conta_bp.route('/seja-cliente')
+def formulario_cliente():
+    return render_template('cadastro_cliente.html')
 
 '''CADASTRA CLIENTE'''
-@conta_bp.route('/form/cadastro-cliente', methods=['POST'])
+@conta_bp.route('/registrar-cliente', methods=['POST'])
 def cria_cliente():
 
     nome = request.form.get('nome')
     sobrenome = request.form.get('sobrenome')
-    cpf = request.form.get('cpf')
 
-    cliente = Cliente(nome, sobrenome, cpf)
+    cpf = request.form.get('cpf')
+    email = request.form.get('email')
+    telefone = request.form.get('telefone')
+    celular = request.form.get('celular')
+    endereco = request.form.get('endereco')
+    complemento = request.form.get('complemento')
+    numero_residencial = request.form.get('numero_residencial')
+    pais = request.form.get('pais')
+    estado = request.form.get('estado')
+    cep = request.form.get('cep')
+
+    cliente = Cliente(nome,
+                      sobrenome,
+                      cpf,
+                      email,
+                      telefone,
+                      celular,
+                      endereco,
+                      complemento,
+                      numero_residencial,
+                      pais,
+                      estado,
+                      cep)
 
     connection = get_connection()
 
-    sql = 'insert into contas (titular, cpf) values (%s, %s)'
-    valores = (cliente.get_titular, cliente.get_cpf)
+    sql = 'insert into contas (titular, cpf, email, telefone, celular, endereco, complemento, numero_residencial, pais, estado, cep) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+    valores = (cliente.get_titular,
+               cliente.get_cpf,
+               cliente.get_email,
+               cliente.get_telefone,
+               cliente.get_celular,
+               cliente.get_endereco,
+               cliente.get_complemento,
+               cliente.get_numero_residencial,
+               cliente.get_pais,
+               cliente.get_estado,
+               cliente.get_cep)
 
     cursor = connection.cursor()
     cursor.execute(sql, valores)
@@ -32,14 +68,11 @@ def cria_cliente():
     connection.commit()
     connection.close()
 
-    return redirect(url_for('contas.get_cliente',
-                            id=cliente.get_id,
-                            titular=cliente.get_titular,
-                            cpf=cliente.get_cpf))
+    return redirect(url_for('bb.get_cliente', id=cliente.get_id))
 
 '''-------------- CRIA CONTA ----------------'''
 '''PEGA CLIENTE NO BD'''
-@conta_bp.route('/form/<int:id>/escolha-sua-conta', methods=['GET'])
+@conta_bp.route('/<int:id>/escolha-sua-conta', methods=['GET'])
 def get_cliente(id):
 
     update = True
@@ -53,31 +86,34 @@ def get_cliente(id):
     resultado = cursor.fetchall()
 
     id = resultado[0][0]
-    titular = resultado[0][2]
-    cpf = resultado[0][3]
+    titular = resultado[0][1]
 
+    connection.commit()
     connection.close()
 
-    return render_template('form-conta.html',
+    return render_template('escolha_conta.html',
                            id=id,
                            titular=titular,
-                           cpf=cpf,
                            update=update)
 
-'''CRIA CONTA'''
-@conta_bp.route('/<int:id>/create', methods=['POST'])
+'''CRIA CONTA (   QUANDO DER SUBMIT NO FORM   )'''
+@conta_bp.route('/<int:id>/corrente', methods=['POST'])
 def create_account(id):
 
     connection = get_connection()
 
-    numero = request.form.get('numero')
-    senha = request.form.get('senha')
-    limite = float(request.form.get('limite'))
+    sql_busca = 'select titular from contas where id={}'.format(int(id))
 
-    conta = ContaPoupanca(numero, senha, limite)
+    cursor = connection.cursor()
+    cursor.execute(sql_busca)
+    resultado = cursor.fetchall()
 
-    sql = 'update contas set numero=%s, senha=%s, saldo=%s, limite=%s where id=%s;'
-    valores = (numero, senha, conta.get_saldo, limite, int(id))
+    titular = resultado[0][0]
+
+    conta = ContaCorrente(titular)
+
+    sql = 'update contas set tipo_conta=%s, numero=%s, senha=%s, saldo=%s, limite=%s where id=%s;'
+    valores = (conta.get_tipo_conta, conta.get_numero, conta.get_senha, conta.get_saldo, conta.get_limite, int(id))
 
     cursor = connection.cursor()
     cursor.execute(sql, valores)
@@ -85,7 +121,7 @@ def create_account(id):
     connection.commit()
     connection.close()
 
-    return '<h1>O seu cartão chegará em 7 dias uteis!!! :D</h1>'
+    return render_template('envio_email.html')
 
 ''' ------------ LOGIN CLIENTE ------------- '''
 @conta_bp.route('/signin')
@@ -120,7 +156,7 @@ def validation():
     if input_senha == senha_output:
         return '<h1>Entrou</h1>'
     else:
-        return render_template('login.html', failed_login=True)
+        return render_template('login.html', failed_login=True, id=id_output)
 
 ''' ------- HOME PRINCIPAL SEM LOGIN -------- '''
 @conta_bp.route('/home')

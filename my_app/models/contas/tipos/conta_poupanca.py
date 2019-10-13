@@ -1,4 +1,4 @@
-from my_app.models.contas.base.conta import Conta
+'''from my_app.models.contas.base.conta import Conta
 from my_app.models.cliente.cliente import Cliente
 
 class ContaPoupanca(Conta, Cliente):
@@ -7,4 +7,4 @@ class ContaPoupanca(Conta, Cliente):
     Conta.__init__(self, numero, senha, limite)
   
   def atualiza(self, taxa):
-    self._saldo += self._saldo * taxa * 3
+    self._saldo += self._saldo * taxa * 3'''

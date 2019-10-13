@@ -1,0 +1,200 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Byte Bank · O seu banco digital</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+    <div class="container">
+  <div class="py-5 text-center">
+    <a href="/bb/home">
+      <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='img/ByteBank.png') }}" alt="" width="200" height="170">
+    </a>
+    <h2>Seja um Byter Bank</h2>
+    <p class="lead">Sendo cliente <strong>Byte Bank</strong> você tem inúmeras vantagens, como descontos em cinemas, shows, eventos, lojas parceiras, investimentos desde <strong>Tesouro Direto</strong> até <strong>Bolsa de valores</strong> e muito mais.</p>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-8 order-md-1">
+
+      <h4 class="mb-3">Precisamos de algumas informações</h4>
+
+      <form action="/bb/registrar-cliente" method="post">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Qual é o seu nome?" value="" required>
+            <div class="invalid-feedback">
+              O nome é obrigatório
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Qual é o seu sobrenome?" value="" required>
+            <div class="invalid-feedback">
+              O sobrenome é obrigatório
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="cpf">CPF</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><img src="{{ url_for('static', filename='img/register-cpf.svg') }}" alt=""></span>
+            </div>
+            <input type="text" class="form-control" name="cpf" id="cpf" placeholder="Seu CPF" required>
+            <div class="invalid-feedback" style="width: 100%;">
+              O CPF é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><img src="{{ url_for('static', filename='img/icon-email.svg') }}" alt=""></span>
+            </div>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Qual é o seu email?" required>
+            <div class="invalid-feedback" style="width: 100%;">
+              O seu Email é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+          <label for="telefone">Telefone</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><img src="{{ url_for('static', filename='img/phone.svg') }}" alt=""></span>
+            </div>
+            <input type="tel" class="form-control" name="telefone" id="telefone" placeholder="Qual é o seu número de telefone fixo?" required>
+            <div class="invalid-feedback" style="width: 50%;">
+              Telefone fixo é obrigatório.
+            </div>
+          </div>
+        </div>
+          <div class="col-md-6 mb-3">
+          <label for="celular">Celular</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><img src="{{ url_for('static', filename='img/cell-phone.svg') }}" alt=""></span>
+            </div>
+            <input type="tel" class="form-control" name="celular" id="celular" placeholder="Qual é o seu número de celular?" required>
+            <div class="invalid-feedback" style="width: 50%;">
+              Celular é obrigatório.
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="endereco">Endereço</label>
+          <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o nome da rua ou avenida" required>
+          <div class="invalid-feedback">
+            Por favor informe seu endereço.
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="numero-res">Número residencial</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><img src="{{ url_for('static', filename='img/home-number.svg') }}" alt=""></span>
+              </div>
+              <input type="tel" class="form-control" name="numero_residencial" id="numero-res" placeholder="Qual é o número de sua residência?" required>
+              <div class="invalid-feedback" style="width: 50%;">
+                O número residencial é obrigatório.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="complemento">Complmento</label>
+            <select class="custom-select d-block w-100" name="complemento" id="complemento" required>
+              <option value="">Selecione</option>
+              <option>Casa</option>
+              <option>Apartamento</option>
+            </select>
+            <div class="invalid-feedback">
+              Por favor selecione um complemento.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="pais">País</label>
+            <select name="pais" class="custom-select d-block w-100" id="pais" required>
+              <option value="">Selecione</option>
+              <option value="Brasil">Brasil</option>
+            </select>
+            <div class="invalid-feedback">
+              Por favor selecione um país.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="state">Estado</label>
+            <select class="custom-select d-block w-100" id="state" name="estado" required>
+              <option value="">Selecione</option>
+              <option value="São Paulo">São Paulo</option>
+            </select>
+            <div class="invalid-feedback">
+              Por favor selecione um estado.
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label for="cep">CEP</label>
+            <input type="text" class="form-control" name="cep" id="cep" placeholder="99999-999" required>
+            <div class="invalid-feedback">
+              CEP é obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <hr class="mb-4">
+
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="same-address" required>
+          <label class="custom-control-label" for="same-address">Declaro que as informações acima prestadas são verdadeiras, e assumo a inteira responsabilidade pelas mesmas de acordo com o §1º ao art. 312 da lei Nº 931924/96.</label>
+        </div>
+
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="save-info" required>
+          <label class="custom-control-label" for="save-info">Concordo com todos os <a href="#">termos</a>.</label>
+        </div>
+
+        <hr class="mb-4">
+
+        <button class="btn btn-success btn-lg btn-block" type="submit">Avançar</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2019 ByteBank Corporation</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacidade</a></li>
+      <li class="list-inline-item"><a href="#">Termos</a></li>
+      <li class="list-inline-item"><a href="#">Suporte</a></li>
+    </ul>
+  </footer>
+</div>
+  </body>
+</html>

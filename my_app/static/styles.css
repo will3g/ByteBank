@@ -45,3 +45,14 @@ body {
 .color-default {
   color: #246025;
 }
+.banner {
+    div.banner {
+    height: 380px;
+    width: 100%;
+    background: #3bb9e3;
+
+    /* Com os comandos abaixo, centralizamos todos os elementos do banner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

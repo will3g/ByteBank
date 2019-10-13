@@ -10,9 +10,11 @@
   </head>
 
   <body class="text-center p-3 mb-2 bg-dark text-white">
-    <form action="/contas/login" method="post" class="form-signin">
+    <form action="/bb/login" method="post" class="form-signin">
 
-      <img src="{{ url_for('static', filename='img/ByteBank.png') }}" alt="Byte Bank, seu banco digital" width="200px" height="180px" style="margin-bottom: 30px" >
+      <a href="/bb/home">
+        <img src="{{ url_for('static', filename='img/ByteBank.png') }}" alt="Byte Bank, seu banco digital" width="200px" height="180px" style="margin-bottom: 30px">
+      </a>
       <h1 class="h3 mb-3 font-weight-normal text-light">Acesse sua conta agora!</h1>
 
       <label for="inputCpf" class="sr-only">CPF</label>

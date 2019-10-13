@@ -2,8 +2,9 @@ from my_app.models.errors.errors import ValorMenorQueZeroError, \
     TranferenciaNaoEfetuadaError, SaldoELimiteInsuficienteError
 from my_app.models.contas.dateCreateAccount import DateCreateAccount
 from my_app.models.contas.historico import Historico
+from abc import ABC
 
-class Conta:
+class Conta():
 
     __slots__ = ['__numero',
                  '__titular',
@@ -16,11 +17,12 @@ class Conta:
 
     __quantidade_contas = 0
     
-    def __init__(self, numero, senha, limite):
+    def __init__(self, titular, numero, senha, limite):
         self.__numero = numero
         self.__senha = senha
         self._saldo = 0.0
         self.__limite = limite
+        self.__titular = titular
         self.__date_abertura = DateCreateAccount()
         print('Conta criada em {}'.format(self.__date_abertura.dateCreated()))
         self._identificador_conta = Conta.__quantidade_contas
