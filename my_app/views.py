@@ -162,3 +162,8 @@ def validation():
 @conta_bp.route('/home')
 def home():
     return render_template('main.html')
+
+''' ------- DASHBOARD -------- '''
+@conta_bp.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
