@@ -21,4 +21,4 @@ ___
 
 ___
 # Dashboard ByteBank - Home Broker
-![byte-bank-home-broker](https://user-images.githubusercontent.com/49616761/66724439-7dd28180-edfc-11e9-9975-2ce7fa2ab62b.png)
+![home-broker](https://user-images.githubusercontent.com/49616761/66755894-4a7d0a80-ee6f-11e9-878f-6182ca824b67.png)
