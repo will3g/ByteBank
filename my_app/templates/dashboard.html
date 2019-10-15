@@ -10,115 +10,257 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='dashboard.css') }}" rel="stylesheet">
 
   </head>
-  <body class="bg-light">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand mr-auto text-light mr-lg-0" href="#">Dashboard</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-  <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
-    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mais
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <div>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/bb/home">
+              <img src="{{ url_for('static', filename='img/logo-navbar.png') }}" width="30" height="30" class="d-inline-block align-top" alt="Byte Bank, o seu banco digital">
+              Byte Bank
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Suporte</a>
-          <a class="dropdown-item" href="#">Descontos</a>
-          <a class="dropdown-item" href="#">Notificações</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Conta</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sair</a>
-      </li>
-    </ul>
-  </div>
+      </div>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" data-toggle="tooltip" data-placement="top" title="Sair" href="#"><img src="{{ url_for('static', filename='img/log-out.svg') }}" alt="Sair" width="20px" height="20px"></a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <img src="{{ url_for('static', filename='img/activity.svg') }}" alt="Home Broker" width="15px" height="15px">
+              Home Broker
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="{{ url_for('static', filename='img/refresh-ccw.svg') }}" alt="Atividades recentes" width="15px" height="15px">
+              Atividades recentes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="{{ url_for('static', filename='img/bar-chart.svg') }}" alt="Investimentos em alta" width="15px" height="15px">
+              Investimentos em alta
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="{{ url_for('static', filename='img/percent.svg') }}" alt="Taxa SELIC" width="15px" height="15px">
+              Taxa SELIC
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="{{ url_for('static', filename='img/user.svg') }}" alt="Tipo de investidor" width="15px" height="15px">
+              Tipo de investidor
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="{{ url_for('static', filename='img/users.svg') }}" alt="Suporte ao investidor" width="15px" height="15px">
+              Suporte ao investidor
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Operações</span>
+          <a class="d-flex align-items-center text-muted" href="#">
+            <img src="{{ url_for('static', filename='img/plus-circle.svg') }}" alt="Operações" width="15px" height="15px">
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="{{ url_for('static', filename='img/dollar-sign.svg') }}" alt="Depósito" width="15px" height="15px">
+              Depósito
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="{{ url_for('static', filename='img/dollar-sign.svg') }}" alt="Saque" width="15px" height="15px">
+              Saque
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="{{ url_for('static', filename='img/repeat.svg') }}" alt="Transferência" width="15px" height="15px">
+              Transferência
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
-<main role="main" class="container">
-  <div class="d-flex pt-5 mt-4 align-items-center p-3 my-3 bg-light text-dark rounded shadow-sm">
-    <img class="mr-3" src="{{ url_for('static', filename='img/logo-navbar.png') }}" alt="" width="48" height="48">
-    <div class="lh-100">
-      <h6 class="mb-0 lh-100">Byte Bank · Home Broker</h6>
-      <small>2019</small>
-    </div>
-  </div>
-
-  <div class="my-3 p-3 bg-white rounded shadow-sm">
-    <h6 class="border-bottom border-gray pb-2 mb-0">Atividades recentes</h6>
-    <div class="media text-muted pt-3">
-      <i class="material-icons large mr-2">account_circle</i>
-      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <strong class="d-block text-gray-dark">{{ titular }}</strong>
-        Depósito de 400 reais no dia 13/10/19 às 16h42m
-      </p>
-    </div>
-    <div class="media text-muted pt-3">
-      <i class="material-icons large mr-2">account_circle</i>
-      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <strong class="d-block text-gray-dark">{{ titular }}</strong>
-        Transferência de 200 reais no dia 29/09/19 às 13h28m
-      </p>
-    </div>
-    <div class="media text-muted pt-3">
-      <i class="material-icons large mr-2">account_circle</i>
-      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <strong class="d-block text-gray-dark">{{ titular }}</strong>
-        Saque de 600 reais no dia 26/09/19 às 10h34m
-      </p>
-    </div>
-    <small class="d-block text-right mt-3">
-      <a href="#">Todas as atualizações</a>
-    </small>
-  </div>
-
-  <div class="my-3 p-3 bg-white rounded shadow-sm">
-    <h6 class="border-bottom border-gray pb-2 mb-0">Investimento</h6>
-    <div class="media text-muted pt-3">
-      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-      <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <div class="d-flex justify-content-between align-items-center w-100">
-          <strong class="text-gray-dark"><a href="#">Tesouro direto</a></strong>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Home Broker</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Compartilhar</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
+          </div>
+          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <img src="{{ url_for('static', filename='img/calendar.svg') }}" alt="Calendario" width="15px" height="15px">
+            Nesta semana
+          </button>
         </div>
-        <span class="d-block">Taxa SELIC</span>
       </div>
-    </div>
-    <div class="media text-muted pt-3">
-      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-      <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <div class="d-flex justify-content-between align-items-center w-100">
-          <strong class="text-gray-dark"><a href="#">Bolsa de valores</a></strong>
-        </div>
-        <span class="d-block">Ações</span>
-      </div>
-    </div>
-    <div class="media text-muted pt-3">
-      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-      <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <div class="d-flex justify-content-between align-items-center w-100">
-          <strong class="text-gray-dark"><a href="#">Poupança</a></strong>
-        </div>
-        <span class="d-block">Poupança BB</span>
-      </div>
-    </div>
-    <small class="d-block text-right mt-3">
-      <a href="#">Mostrar mais</a>
-    </small>
-  </div>
-</main>
 
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+
+      <h2>Histórico</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Header</th>
+              <th>Header</th>
+              <th>Header</th>
+              <th>Header</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1,001</td>
+              <td>Lorem</td>
+              <td>ipsum</td>
+              <td>dolor</td>
+              <td>sit</td>
+            </tr>
+            <tr>
+              <td>1,002</td>
+              <td>amet</td>
+              <td>consectetur</td>
+              <td>adipiscing</td>
+              <td>elit</td>
+            </tr>
+            <tr>
+              <td>1,003</td>
+              <td>Integer</td>
+              <td>nec</td>
+              <td>odio</td>
+              <td>Praesent</td>
+            </tr>
+            <tr>
+              <td>1,003</td>
+              <td>libero</td>
+              <td>Sed</td>
+              <td>cursus</td>
+              <td>ante</td>
+            </tr>
+            <tr>
+              <td>1,004</td>
+              <td>dapibus</td>
+              <td>diam</td>
+              <td>Sed</td>
+              <td>nisi</td>
+            </tr>
+            <tr>
+              <td>1,005</td>
+              <td>Nulla</td>
+              <td>quis</td>
+              <td>sem</td>
+              <td>at</td>
+            </tr>
+            <tr>
+              <td>1,006</td>
+              <td>nibh</td>
+              <td>elementum</td>
+              <td>imperdiet</td>
+              <td>Duis</td>
+            </tr>
+            <tr>
+              <td>1,007</td>
+              <td>sagittis</td>
+              <td>ipsum</td>
+              <td>Praesent</td>
+              <td>mauris</td>
+            </tr>
+            <tr>
+              <td>1,008</td>
+              <td>Fusce</td>
+              <td>nec</td>
+              <td>tellus</td>
+              <td>sed</td>
+            </tr>
+            <tr>
+              <td>1,009</td>
+              <td>augue</td>
+              <td>semper</td>
+              <td>porta</td>
+              <td>Mauris</td>
+            </tr>
+            <tr>
+              <td>1,010</td>
+              <td>massa</td>
+              <td>Vestibulum</td>
+              <td>lacinia</td>
+              <td>arcu</td>
+            </tr>
+            <tr>
+              <td>1,011</td>
+              <td>eget</td>
+              <td>nulla</td>
+              <td>Class</td>
+              <td>aptent</td>
+            </tr>
+            <tr>
+              <td>1,012</td>
+              <td>taciti</td>
+              <td>sociosqu</td>
+              <td>ad</td>
+              <td>litora</td>
+            </tr>
+            <tr>
+              <td>1,013</td>
+              <td>torquent</td>
+              <td>per</td>
+              <td>conubia</td>
+              <td>nostra</td>
+            </tr>
+            <tr>
+              <td>1,014</td>
+              <td>per</td>
+              <td>inceptos</td>
+              <td>himenaeos</td>
+              <td>Curabitur</td>
+            </tr>
+            <tr>
+              <td>1,015</td>
+              <td>sodales</td>
+              <td>ligula</td>
+              <td>in</td>
+              <td>libero</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+        <!-- Bootstrap core JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
   </body>
 </html>
