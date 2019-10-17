@@ -1,4 +1,5 @@
 from flask import render_template, Blueprint, request, redirect, url_for
+
 '''from my_app.models.contas.tipos.conta_poupanca import ContaPoupanca'''
 from my_app.models.contas.tipos.conta_corrente import ContaCorrente
 from my_app.models.cliente.cliente import Cliente
@@ -6,20 +7,17 @@ from my_app.db import get_connection
 
 conta_bp = Blueprint('bb', __name__, url_prefix='/bb')
 
-'''----------- CADASTRA CLIENTE -------------'''
-'''EXIBE FOR CLIENTE'''
-'''@conta_bp.route('/seja-cliente')
-def formulario_cliente():
-    return render_template('form-cliente.html')'''
 
 @conta_bp.route('/seja-cliente')
 def formulario_cliente():
     return render_template('cadastro_cliente.html')
 
+
 '''CADASTRA CLIENTE'''
+
+
 @conta_bp.route('/registrar-cliente', methods=['POST'])
 def cria_cliente():
-
     nome = request.form.get('nome')
     sobrenome = request.form.get('sobrenome')
 
@@ -70,11 +68,13 @@ def cria_cliente():
 
     return redirect(url_for('bb.get_cliente', id=cliente.get_id))
 
+
 '''-------------- CRIA CONTA ----------------'''
 '''PEGA CLIENTE NO BD'''
+
+
 @conta_bp.route('/<int:id>/escolha-sua-conta', methods=['GET'])
 def get_cliente(id):
-
     update = True
 
     connection = get_connection()
@@ -96,10 +96,12 @@ def get_cliente(id):
                            titular=titular,
                            update=update)
 
+
 '''CRIA CONTA (   QUANDO DER SUBMIT NO FORM   )'''
+
+
 @conta_bp.route('/<int:id>/corrente', methods=['POST'])
 def create_account(id):
-
     connection = get_connection()
 
     sql_busca = 'select titular from contas where id={}'.format(int(id))
@@ -123,14 +125,17 @@ def create_account(id):
 
     return render_template('envio_email.html')
 
+
 ''' ------------ LOGIN CLIENTE ------------- '''
+
+
 @conta_bp.route('/signin')
 def login():
     return render_template('login.html')
 
+
 @conta_bp.route('/login', methods=['POST'])
 def validation():
-
     input_cpf = request.form.get('cpf')
     input_senha = request.form.get('senha')
 
@@ -154,16 +159,34 @@ def validation():
     connection.close()
 
     if input_senha == senha_output:
-        return '<h1>Entrou</h1>'
+        return redirect(url_for('bb.dashboard'))
     else:
         return render_template('login.html', failed_login=True, id=id_output)
 
+
 ''' ------- HOME PRINCIPAL SEM LOGIN -------- '''
+
+
 @conta_bp.route('/home')
 def home():
     return render_template('main.html')
 
+
 ''' ------- DASHBOARD -------- '''
-@conta_bp.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html')
+
+
+@conta_bp.route('/<int:id>/dashboard')
+def dashboard(id):
+    connection = get_connection()
+
+    sql = 'select saldo from contas where id={}'.format(id)
+
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    resultado = cursor.fetchall()
+
+    saldo = resultado[0][0]
+
+    connection.close()
+
+    return render_template('dashboard.html', saldo=saldo)
